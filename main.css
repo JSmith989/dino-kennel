@@ -1,3 +1,25 @@
 body {
     background-color: rgb(215, 201, 228);
 }
+
+.dino-kennel {
+    background-color: white;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 40px;
+}
+.dino-hospital {
+    background-color: rgb(124, 0, 0);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 40px;
+}
+.dino-dead {
+    background-color: black;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 40px;
+}
