@@ -1,6 +1,5 @@
 const dinoArray = [
   {
-    id: "dino1",
     name: "Rex",
     type: "T Rex",
     age: 100,
@@ -11,7 +10,6 @@ const dinoArray = [
       "https://www.fieldandstream.com/resizer/8xkluKAxQZsEHJKj6qwyU0mLhTo=/760x448/filters:focal(458x270:459x271)/arc-anglerfish-arc2-prod-bonnier.s3.amazonaws.com/public/TQFN3CD5DAEM4DL2ACD42ZJ5E4.png",
   },
   {
-    id: "dino2",
     name: "Steve",
     type: "Velociraptor",
     age: 1,
@@ -21,7 +19,6 @@ const dinoArray = [
     imageUrl: "https://i.ebayimg.com/images/g/61UAAOSweNpdmtI2/s-l640.png",
   },
   {
-    id: "dino3",
     name: "Susan",
     type: "stegosaurus",
     age: 55,
@@ -32,7 +29,6 @@ const dinoArray = [
       "https://cdn.mos.cms.futurecdn.net/owYTb9X5fKpeBhgiaxD73b-320-80.jpg",
   },
   {
-    id: "dino4",
     name: "Barry",
     type: "Brontosaurus",
     age: 100,
@@ -40,10 +36,9 @@ const dinoArray = [
     adventures: [],
     health: 100,
     imageUrl:
-      "https://lh3.googleusercontent.com/proxy/_rJSL88ErOEvgHl5SInWOEolOdikwIMcKWPv9iqZzt3IUkD33WdG6d9qd8TmNJFSiszTXm7JeGQPocmB_BZErKxt__25LOpW75dmnVuy0nuY0PatX2cIYA-C",
+      "https://lh3.googleusercontent.com/proxy/TaiElAf11WlzYoocvr38G-aVnLeRq0hAoyTgglsMVT2xAQnA--Rp3kSMzd2kbaRoc8A0CeRDZEbZFQOmb5sJkOQYprOSq49bnZq5RY3ULt8j9BjjG5uDuQDn",
   },
   {
-    id: "dino5",
     name: "Steph",
     type: "Spinosaurus",
     age: 100,
@@ -54,7 +49,6 @@ const dinoArray = [
       "https://cdn1.bigcommerce.com/n-yp39j5/ujq6o/products/1060/images/2390/Papo_Spinosaurus_2019_DansDinosaurs__69805.1552618774.1280.1280.jpg?c=2",
   },
   {
-    id: "dino6",
     name: "Tim",
     type: "Talarurus",
     age: 100,
@@ -65,7 +59,6 @@ const dinoArray = [
       "https://vignette.wikia.nocookie.net/dinosaurs/images/2/2b/TalarurusInfobox.png/revision/latest/scale-to-width-down/340?cb=20150512165226",
   },
   {
-    id: "dino7",
     name: "Tracy",
     type: "Triceratops",
     age: 100,
@@ -76,7 +69,6 @@ const dinoArray = [
       "https://images-na.ssl-images-amazon.com/images/I/81Wsvp2M7iL._AC_SX425_.jpg",
   },
   {
-    id: "dino8",
     name: "Percy",
     type: "Pterodactyl",
     age: 10,
@@ -86,7 +78,6 @@ const dinoArray = [
     imageUrl: "https://images.dinosaurpictures.org/3_pterodactyl_63be.jpg",
   },
   {
-    id: "dino9",
     name: "Betty",
     type: "brontosaurus",
     age: 22,
@@ -151,75 +142,112 @@ const adventureArray = [
   },
 ];
 
+
+const makeDinoCards = (dino) => {
+    let domString = `
+    <div class="card" style="width: 18rem;">
+    <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
+    <div class="card-body">
+      <h5 class="dino-name">${dino.name}</h5>
+      <p>Type: ${dino.type}</p>
+      <p>Owner: ${dino.owner}</p>
+      <p>Age: ${dino.age}</p>
+      <p>Health: ${dino.health}% <div class="progress">
+      <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
+    </div></p>
+    <button type="feed-button" class="btn btn-outline-success">Feed</button>
+    <button type="adventure-button" class="btn btn-outline-warning">Adventure</button>
+    <button type="pet-button" class="btn btn-outline-secondary">Pet</button>
+    <button type="delete-button" class="btn btn-outline-danger">Delete</button>
+    </div>
+  </div>
+    `
+    return domString
+}
+
+
 const dinoCards = () => {
   $("#dino-kennel").html("");
+  $("#dino-hospital").html("");
+  $("#dino-dead").html("");
   dinoArray.forEach((dino) => {
     if(dino.health >= 35){
-    $("#dino-kennel").append(`
-    <div class="card" style="width: 18rem;">
-    <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
-    <div class="card-body">
-      <h5 class="dino-name">${dino.name}</h5>
-      <p>Type: ${dino.type}</p>
-      <p>Owner: ${dino.owner}</p>
-      <p>Age: ${dino.age}</p>
-      <p>Health: ${dino.health}% <div class="progress">
-      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-    </div></p>
-    <button type="feed-button" class="btn btn-outline-success">Feed</button>
-    <button type="adventure-button" class="btn btn-outline-warning">Adventure</button>
-    <button type="pet-button" class="btn btn-outline-secondary">Pet</button>
-    <button type="delete-button" class="btn btn-outline-danger">Delete</button>
-    </div>
-  </div>
-          `);
-  } else if(dino.health <35 && dino.health > 0) {
-    $("#dino-hospital").append(`
-    <div class="card" style="width: 18rem;">
-    <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
-    <div class="card-body">
-      <h5 class="dino-name">${dino.name}</h5>
-      <p>Type: ${dino.type}</p>
-      <p>Owner: ${dino.owner}</p>
-      <p>Age: ${dino.age}</p>
-      <p>Health: ${dino.health}% <div class="progress">
-      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-    </div></p>
-    <button type="feed-button" class="btn btn-outline-success">Feed</button>
-    <button type="adventure-button" class="btn btn-outline-warning">Adventure</button>
-    <button type="pet-button" class="btn btn-outline-secondary">Pet</button>
-    <button type="delete-button" class="btn btn-outline-danger">Delete</button>
-    </div>
-  </div>
-          `);
+    $("#dino-kennel").append(makeDinoCards(dino));
+  } else if(dino.health < 35 && dino.health > 0) {
+    $("#dino-hospital").append(makeDinoCards(dino));
   } else {
-    $("#dino-dead").append(`
-    <div class="card" style="width: 18rem;">
-    <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
-    <div class="card-body">
-      <h5 class="dino-name">${dino.name}</h5>
-      <p>Type: ${dino.type}</p>
-      <p>Owner: ${dino.owner}</p>
-      <p>Age: ${dino.age}</p>
-      <p>Health: ${dino.health}% <div class="progress">
-      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-    </div></p>
-    <button type="feed-button" class="btn btn-outline-success">Feed</button>
-    <button type="adventure-button" class="btn btn-outline-warning">Adventure</button>
-    <button type="pet-button" class="btn btn-outline-secondary">Pet</button>
-    <button type="delete-button" class="btn btn-outline-danger">Delete</button>
-    </div>
-  </div>
-          `);
+    $("#dino-dead").append(makeDinoCards(dino));
   }
     });
   };
 
 
 
+  
+const dinoForm = () => {
+    $("#addDino").click(() => {
+        $("#dinoForm").html(`
+        <form id="your-dino">
+              <div class="row">
+                <div class="col">
+                  <input type="text" class="form-control" id="dinoName" placeholder="Name">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" id="dinoOwner" placeholder="Owner">
+                </div>
+                <div class="col">
+                  <input type="number" class="form-control" id="dinoAge" placeholder="Age">
+                </div>
+                <div class="col">
+                  <input type="text" class="form-control" id="dinoType" placeholder="Type">
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="dinoIMG" placeholder="Dino URL">
+              </div>
+              <input type="button" id="submitDino" class="btn btn-info" value="Add My Dino"></input>
+            </form>
+        `)
+        addDino();
+    })
+};
+
+const addDino = (form) => {
+    $("#submitDino").click(() => {
+        let dinoInfo = {};
+        if(form){
+        dinoInfo.name = $("#dinoName").val();
+        dinoInfo.type = $("#dinoType").val();
+        dinoInfo.age = $("#dinoAge").val();
+        dinoInfo.owner = $("#dinoOwner").val();        
+        dinoInfo.adventures = [];
+        dinoInfo.health = 50;     
+        dinoInfo.imageUrl = $("#dinoIMG").val();        
+        dinoArray.push(dinoInfo);
+        dinoCards(dinoArray);
+        clearForm();
+        } else {
+            return window.alert("Whoops! The form isn't filled out!")
+        };
+    });
+    $("#addDino").click(() => {
+        $("#dinoForm").toggle()
+    })
+};
+
+
+const clearForm = () => {
+    $('#dinoName').val('');
+    $('#dinoType').val('');
+    $('#dinoAge').val('');
+    $('#dinoOwner').val('');
+    $('#dinoIMG').val('');
+}
+
 
 const init = () => {
     dinoCards();
+    dinoForm();
   };
   
   init();
