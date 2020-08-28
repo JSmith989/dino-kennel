@@ -1,92 +1,94 @@
 const dinoArray = [
   {
-    name: "Rex",
-    type: "T Rex",
+    id: 'dino1',
+    name: 'Rex',
+    type: 'T Rex',
     age: 100,
-    owner: "Jacob",
+    owner: 'Jacob',
     adventures: [],
     health: 92,
-    imageUrl:
-      "https://www.fieldandstream.com/resizer/8xkluKAxQZsEHJKj6qwyU0mLhTo=/760x448/filters:focal(458x270:459x271)/arc-anglerfish-arc2-prod-bonnier.s3.amazonaws.com/public/TQFN3CD5DAEM4DL2ACD42ZJ5E4.png",
+    imageUrl: 'https://www.fieldandstream.com/resizer/8xkluKAxQZsEHJKj6qwyU0mLhTo=/760x448/filters:focal(458x270:459x271)/arc-anglerfish-arc2-prod-bonnier.s3.amazonaws.com/public/TQFN3CD5DAEM4DL2ACD42ZJ5E4.png'
   },
   {
-    name: "Steve",
-    type: "Velociraptor",
+    id: 'dino2',
+    name: 'Steve',
+    type: 'Velociraptor',
     age: 1,
-    owner: "Jacob",
+    owner: 'Jacob',
     adventures: [],
     health: 1,
-    imageUrl: "https://i.ebayimg.com/images/g/61UAAOSweNpdmtI2/s-l640.png",
+    imageUrl: 'https://i.ebayimg.com/images/g/61UAAOSweNpdmtI2/s-l640.png'
   },
   {
-    name: "Susan",
-    type: "stegosaurus",
+    id: 'dino3',
+    name: 'Susan',
+    type: 'stegosaurus',
     age: 55,
-    owner: "Jacob",
+    owner: 'Jacob',
     adventures: [],
     health: 0,
-    imageUrl:
-      "https://cdn.mos.cms.futurecdn.net/owYTb9X5fKpeBhgiaxD73b-320-80.jpg",
+    imageUrl: 'https://cdn.mos.cms.futurecdn.net/owYTb9X5fKpeBhgiaxD73b-320-80.jpg'
   },
   {
-    name: "Barry",
-    type: "Brontosaurus",
+    id: 'dino4',
+    name: 'Barry',
+    type: 'Brontosaurus',
     age: 100,
-    owner: "Abbey",
+    owner: 'Abbey',
     adventures: [],
     health: 100,
-    imageUrl:
-      "https://lh3.googleusercontent.com/proxy/TaiElAf11WlzYoocvr38G-aVnLeRq0hAoyTgglsMVT2xAQnA--Rp3kSMzd2kbaRoc8A0CeRDZEbZFQOmb5sJkOQYprOSq49bnZq5RY3ULt8j9BjjG5uDuQDn",
+    imageUrl: 'https://lh3.googleusercontent.com/proxy/_rJSL88ErOEvgHl5SInWOEolOdikwIMcKWPv9iqZzt3IUkD33WdG6d9qd8TmNJFSiszTXm7JeGQPocmB_BZErKxt__25LOpW75dmnVuy0nuY0PatX2cIYA-C'
   },
   {
-    name: "Steph",
-    type: "Spinosaurus",
+    id: 'dino5',
+    name: 'Steph',
+    type: 'Spinosaurus',
     age: 100,
-    owner: "Dr. T",
+    owner: 'Dr. T',
     adventures: [],
     health: 75,
-    imageUrl:
-      "https://cdn1.bigcommerce.com/n-yp39j5/ujq6o/products/1060/images/2390/Papo_Spinosaurus_2019_DansDinosaurs__69805.1552618774.1280.1280.jpg?c=2",
+    imageUrl: 'https://cdn1.bigcommerce.com/n-yp39j5/ujq6o/products/1060/images/2390/Papo_Spinosaurus_2019_DansDinosaurs__69805.1552618774.1280.1280.jpg?c=2'
   },
   {
-    name: "Tim",
-    type: "Talarurus",
+    id: 'dino6',
+    name: 'Tim',
+    type: 'Talarurus',
     age: 100,
-    owner: "Dr. T",
+    owner: 'Dr. T',
     adventures: [],
     health: 55,
-    imageUrl:
-      "https://vignette.wikia.nocookie.net/dinosaurs/images/2/2b/TalarurusInfobox.png/revision/latest/scale-to-width-down/340?cb=20150512165226",
+    imageUrl: 'https://vignette.wikia.nocookie.net/dinosaurs/images/2/2b/TalarurusInfobox.png/revision/latest/scale-to-width-down/340?cb=20150512165226'
   },
   {
-    name: "Tracy",
-    type: "Triceratops",
+    id: 'dino7',
+    name: 'Tracy',
+    type: 'Triceratops',
     age: 100,
-    owner: "Abbey",
+    owner: 'Abbey',
     adventures: [],
     health: 0,
-    imageUrl:
-      "https://images-na.ssl-images-amazon.com/images/I/81Wsvp2M7iL._AC_SX425_.jpg",
+    imageUrl: 'https://images-na.ssl-images-amazon.com/images/I/81Wsvp2M7iL._AC_SX425_.jpg'
   },
   {
-    name: "Percy",
-    type: "Pterodactyl",
+    id: 'dino8',
+    name: 'Percy',
+    type: 'Pterodactyl',
     age: 10,
-    owner: "Jacob",
+    owner: 'Jacob',
     adventures: [],
     health: 10,
-    imageUrl: "https://images.dinosaurpictures.org/3_pterodactyl_63be.jpg",
+    imageUrl: 'https://images.dinosaurpictures.org/3_pterodactyl_63be.jpg'
   },
   {
-    name: "Betty",
-    type: "brontosaurus",
+    id: 'dino9',
+    name: 'Betty',
+    type: 'brontosaurus',
     age: 22,
-    owner: "Dr. T",
+    owner: 'Dr. T',
     adventures: [],
     health: 22,
-    imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTOdrC7hlvBawFQ7g8vgwHcfQphX5WfeN2bth0dvc4M2oxNGdSD",
-  },
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTOdrC7hlvBawFQ7g8vgwHcfQphX5WfeN2bth0dvc4M2oxNGdSD'
+  }
 ];
 
 const adventureArray = [
@@ -143,28 +145,81 @@ const adventureArray = [
 ];
 
 
+// const makeDinoCards = (dino) => {
+//     let domString = `
+//     <div class="card" style="width: 18rem;">
+//     <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
+//     <div class="card-body">
+//       <h5 class="dino-name">${dino.name}</h5>
+//       <p>Type: ${dino.type}</p>
+//       <p>Owner: ${dino.owner}</p>
+//       <p>Age: ${dino.age}</p>
+//       <p>Health: ${dino.health}% <div class="progress">
+//       <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
+//     </div></p>
+//     <button type="feed-button" class="btn btn-outline-success">Feed</button>
+//     <button type="adventure-button" class="btn btn-outline-warning">Adventure</button>
+//     <button type="pet-button" class="btn btn-outline-secondary">Pet</button>
+//     <button type="delete-button" class="btn btn-outline-danger">Delete</button>
+//     </div>
+//   </div>
+//     `
+//     return domString
+// }
+
 const makeDinoCards = (dino) => {
-    let domString = `
-    <div class="card" style="width: 18rem;">
-    <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
-    <div class="card-body">
+  let domString = `
+  <div id="entireDinoCard">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Dino Info</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
       <h5 class="dino-name">${dino.name}</h5>
-      <p>Type: ${dino.type}</p>
-      <p>Owner: ${dino.owner}</p>
-      <p>Age: ${dino.age}</p>
-      <p>Health: ${dino.health}% <div class="progress">
-      <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
-    </div></p>
-    <button type="feed-button" class="btn btn-outline-success">Feed</button>
-    <button type="adventure-button" class="btn btn-outline-warning">Adventure</button>
-    <button type="pet-button" class="btn btn-outline-secondary">Pet</button>
-    <button type="delete-button" class="btn btn-outline-danger">Delete</button>
+            <p>Type: ${dino.type}</p>
+            <p>Owner: ${dino.owner}</p>
+             <p>Age: ${dino.age}</p>
+            <p>Health: ${dino.health}% <div class="progress">
+             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
+           </div></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
-    `
-    return domString
+</div>
+
+<div class="card" style="width: 18rem;">
+     <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
+     <div class="card-body">
+       <h5 class="dino-name">${dino.name}</h5>
+       <p>Health: ${dino.health}% <div class="progress">
+       <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
+    </div></p>
+     <button type="button" class="btn btn-outline-success">Feed</button>
+     <button type="button" class="btn btn-outline-warning">Adventure</button>
+     <button type="button" class="btn btn-outline-success">Pet</button>
+     <button id="deleteBtn" type="button" class="btn btn-outline-danger">Delete</button>
+     <button id="infoModal" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Info</button>
+     </div>
+   </div>
+</div>
+  `
+  return domString
 }
 
+const deleteDino = () => {
+  $("#deleteBtn").click(() => {
+    $("#entireDinoCard").remove();
+  })
+};
 
 const dinoCards = () => {
   $("#dino-kennel").html("");
@@ -215,7 +270,6 @@ const dinoForm = () => {
 const addDino = (form) => {
     $("#submitDino").click(() => {
         let dinoInfo = {};
-        if(form){
         dinoInfo.name = $("#dinoName").val();
         dinoInfo.type = $("#dinoType").val();
         dinoInfo.age = $("#dinoAge").val();
@@ -226,9 +280,6 @@ const addDino = (form) => {
         dinoArray.push(dinoInfo);
         dinoCards(dinoArray);
         clearForm();
-        } else {
-            return window.alert("Whoops! The form isn't filled out!")
-        };
     });
     $("#addDino").click(() => {
         $("#dinoForm").toggle()
@@ -248,6 +299,7 @@ const clearForm = () => {
 const init = () => {
     dinoCards();
     dinoForm();
+    deleteDino();
   };
   
   init();
