@@ -132,7 +132,7 @@ const makeDinoCards = (item, index) => {
        <div id="prog-${index}"class="progress-bar progress-bar-striped" role="progressbar" style="width: ${item.health}%" aria-valuenow="${item.health}" aria-valuemin="0" aria-valuemax="100"></div>
     </div></p>
      <button id="feed-${index}" type="button" class="btn btn-outline-success">Feed</button>
-     <button type="button" class="btn btn-outline-warning">Adventure</button>
+     <button id="adventure-${index}" type="button" class="btn btn-outline-warning">Adventure</button>
      <button id="pet-${index}" type="button" class="btn btn-outline-success">Pet</button>
      <button id="delete-${index}" type="button" class="btn btn-outline-danger">Delete</button>
      <button id="infoModal-${index}" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#dino-${item.id}">Info</button>
@@ -173,7 +173,13 @@ const petButton = (index, item, array) => {
   });
 };
 
-
+const adventureButton = (index, item, array) => {
+  $(`#adventure-${index}`).click(() => {
+    if(item.health > 0){
+    item.health -= 3;}
+    dinoCards(array);
+  });
+};
 
 
 const dinoCards = (array) => {
@@ -189,6 +195,7 @@ const dinoCards = (array) => {
     $("#dino-dead").append(makeDinoCards(item, index));
   }
   petButton(index, item, array)
+  adventureButton(index, item, array)
   feedButton(index, item, array)
   deleteDino(index, array)
     });
@@ -257,7 +264,7 @@ const clearForm = () => {
 const init = () => {
     dinoCards(dinoArray);
     dinoForm();
-    randoAdventure(adventureArray)
+    // randoAdventure(adventureArray)
   };
   
   init();
