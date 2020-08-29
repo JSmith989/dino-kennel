@@ -37,7 +37,7 @@ const dinoArray = [
     owner: 'Abbey',
     adventures: [],
     health: 100,
-    imageUrl: 'https://lh3.googleusercontent.com/proxy/_rJSL88ErOEvgHl5SInWOEolOdikwIMcKWPv9iqZzt3IUkD33WdG6d9qd8TmNJFSiszTXm7JeGQPocmB_BZErKxt__25LOpW75dmnVuy0nuY0PatX2cIYA-C'
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSF2dDXzeJS-XOVA-JdrWqAMQ5xNPBwuL87IA&usqp=CAU'
   },
   {
     id: 'dino5',
@@ -169,8 +169,8 @@ const adventureArray = [
 
 const makeDinoCards = (dino) => {
   let domString = `
-  <div id="entireDinoCard">
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div id="entireCard-${dino.id}">
+  <div class="modal fade" id="dino-${dino.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -206,8 +206,8 @@ const makeDinoCards = (dino) => {
      <button type="button" class="btn btn-outline-success">Feed</button>
      <button type="button" class="btn btn-outline-warning">Adventure</button>
      <button type="button" class="btn btn-outline-success">Pet</button>
-     <button id="deleteBtn" type="button" class="btn btn-outline-danger">Delete</button>
-     <button id="infoModal" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Info</button>
+     <button id="delete-${dino.id}" type="button" class="btn btn-outline-danger">Delete</button>
+     <button id="infoModal-${dino.id}" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#dino-${dino.id}">Info</button>
      </div>
    </div>
 </div>
@@ -215,9 +215,9 @@ const makeDinoCards = (dino) => {
   return domString
 }
 
-const deleteDino = () => {
-  $("#deleteBtn").click(() => {
-    $("#entireDinoCard").remove();
+const deleteDino = (dino) => {
+  $(`#delete-${dino.id}`).click(() => {
+    $(`#dino-${dino.id}`).remove();
   })
 };
 
