@@ -148,7 +148,7 @@ const adventureArray = [
 
 const makeDinoCards = (item, index) => {
   let domString = `
-  <div id="entireCard-${index}">
+  <div id="entireCard">
   <div class="modal fade" id="dino-${item.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -175,7 +175,7 @@ const makeDinoCards = (item, index) => {
   </div>
 </div>
 
-<div id="yourCard-${index}" class="card" style="width: 18rem;">
+<div id="yourDino" class="card" style="width: 18rem;">
      <img src="${item.imageUrl}" class="card-img-top" alt="dino">
      <div class="card-body">
        <h5 class="dino-name">${item.name}</h5>
@@ -199,14 +199,13 @@ const deleteDino = (index, array) => {
     array.splice(index, 1)
     dinoCards(array)
   })
-  console.log(array)
 };
 
 
 const feedButton = (index, item, array) => {
   $(`#feed-${index}`).click(() => {
     if(item.health > 0){
-      item.health += 3;}
+      item.health += 7;}
       if(item.health > 100){
         return window.alert("Too much energy, I need an adventure")
       }
@@ -225,6 +224,9 @@ const petButton = (index, item, array) => {
   });
 };
 
+const randoAdventure = (array) => {
+  return array[Math.floor(Math.random() * array.length)];
+}
 
 
 
@@ -307,9 +309,9 @@ const clearForm = () => {
 
 
 const init = () => {
-    dinoCards();
+    dinoCards(dinoArray);
     dinoForm();
-    // deleteDino();
+    randoAdventure(adventureArray)
   };
   
   init();
