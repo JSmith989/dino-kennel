@@ -145,32 +145,11 @@ const adventureArray = [
 ];
 
 
-// const makeDinoCards = (dino) => {
-//     let domString = `
-//     <div class="card" style="width: 18rem;">
-//     <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
-//     <div class="card-body">
-//       <h5 class="dino-name">${dino.name}</h5>
-//       <p>Type: ${dino.type}</p>
-//       <p>Owner: ${dino.owner}</p>
-//       <p>Age: ${dino.age}</p>
-//       <p>Health: ${dino.health}% <div class="progress">
-//       <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
-//     </div></p>
-//     <button type="feed-button" class="btn btn-outline-success">Feed</button>
-//     <button type="adventure-button" class="btn btn-outline-warning">Adventure</button>
-//     <button type="pet-button" class="btn btn-outline-secondary">Pet</button>
-//     <button type="delete-button" class="btn btn-outline-danger">Delete</button>
-//     </div>
-//   </div>
-//     `
-//     return domString
-// }
 
-const makeDinoCards = (dino) => {
+const makeDinoCards = (item, index) => {
   let domString = `
-  <div id="entireCard-${dino.id}">
-  <div class="modal fade" id="dino-${dino.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div id="entireCard-${index}">
+  <div class="modal fade" id="dino-${item.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -180,14 +159,14 @@ const makeDinoCards = (dino) => {
         </button>
       </div>
       <div class="modal-body">
-      <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
-      <h5 class="dino-name">${dino.name}</h5>
-            <p>Type: ${dino.type}</p>
-            <p>Owner: ${dino.owner}</p>
-             <p>Age: ${dino.age}</p>
-            <p>Health: ${dino.health}% <div class="progress">
-             <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
-           </div></p>
+      <img src="${item.imageUrl}" class="card-img-top" alt="dino">
+      <h5 class="dino-name">${item.name}</h5>
+            <p>Type: ${item.type}</p>
+            <p>Owner: ${item.owner}</p>
+             <p>Age: ${item.age}</p>
+            <p>Health: ${item.health}%</p> <div class="progress">
+             <div id="prog-${index}" class="progress-bar progress-bar-striped" role="progressbar" style="width: ${item.health}%" aria-valuenow="${item.health}" aria-valuemin="0" aria-valuemax="100"></div>
+           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -196,18 +175,18 @@ const makeDinoCards = (dino) => {
   </div>
 </div>
 
-<div class="card" style="width: 18rem;">
-     <img src="${dino.imageUrl}" class="card-img-top" alt="dino">
+<div id="yourCard-${index}" class="card" style="width: 18rem;">
+     <img src="${item.imageUrl}" class="card-img-top" alt="dino">
      <div class="card-body">
-       <h5 class="dino-name">${dino.name}</h5>
-       <p>Health: ${dino.health}% <div class="progress">
-       <div class="progress-bar progress-bar-striped" role="progressbar" style="width: ${dino.health}%" aria-valuenow="${dino.health}" aria-valuemin="0" aria-valuemax="100"></div>
+       <h5 class="dino-name">${item.name}</h5>
+       <p>Health: ${item.health}% <div class="progress">
+       <div id="prog-${index}"class="progress-bar progress-bar-striped" role="progressbar" style="width: ${item.health}%" aria-valuenow="${item.health}" aria-valuemin="0" aria-valuemax="100"></div>
     </div></p>
-     <button type="button" class="btn btn-outline-success">Feed</button>
+     <button id="feed-${index}" type="button" class="btn btn-outline-success">Feed</button>
      <button type="button" class="btn btn-outline-warning">Adventure</button>
-     <button type="button" class="btn btn-outline-success">Pet</button>
-     <button id="delete-${dino.id}" type="button" class="btn btn-outline-danger">Delete</button>
-     <button id="infoModal-${dino.id}" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#dino-${dino.id}">Info</button>
+     <button id="pet-${index}" type="button" class="btn btn-outline-success">Pet</button>
+     <button id="delete-${index}" type="button" class="btn btn-outline-danger">Delete</button>
+     <button id="infoModal-${index}" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#dino-${item.id}">Info</button>
      </div>
    </div>
 </div>
@@ -215,24 +194,55 @@ const makeDinoCards = (dino) => {
   return domString
 }
 
-const deleteDino = (dino) => {
-  $(`#delete-${dino.id}`).click(() => {
-    $(`#dino-${dino.id}`).remove();
+const deleteDino = (index, array) => {
+  $(`#delete-${index}`).click(() => {
+    array.splice(index, 1)
+    dinoCards(array)
   })
+  console.log(array)
 };
 
-const dinoCards = () => {
+
+const feedButton = (index, item, array) => {
+  $(`#feed-${index}`).click(() => {
+    if(item.health > 0){
+      item.health += 3;}
+      if(item.health > 100){
+        return window.alert("Too much energy, I need an adventure")
+      }
+    dinoCards(array);
+  });
+};
+
+const petButton = (index, item, array) => {
+  $(`#pet-${index}`).click(() => {
+    if(item.health > 0){
+    item.health += 3;}
+    if(item.health > 100){
+      return window.alert("Too much energy, I need an adventure")
+    }
+    dinoCards(array);
+  });
+};
+
+
+
+
+const dinoCards = (array) => {
   $("#dino-kennel").html("");
   $("#dino-hospital").html("");
   $("#dino-dead").html("");
-  dinoArray.forEach((dino) => {
-    if(dino.health >= 35){
-    $("#dino-kennel").append(makeDinoCards(dino));
-  } else if(dino.health < 35 && dino.health > 0) {
-    $("#dino-hospital").append(makeDinoCards(dino));
+  dinoArray.forEach((item, index) => {
+    if(item.health >= 35){
+    $("#dino-kennel").append(makeDinoCards(item, index));
+  } else if(item.health < 35 && item.health > 0) {
+    $("#dino-hospital").append(makeDinoCards(item, index));
   } else {
-    $("#dino-dead").append(makeDinoCards(dino));
+    $("#dino-dead").append(makeDinoCards(item, index));
   }
+  petButton(index, item, array)
+  feedButton(index, item, array)
+  deleteDino(index, array)
     });
   };
 
@@ -267,7 +277,7 @@ const dinoForm = () => {
     })
 };
 
-const addDino = (form) => {
+const addDino = () => {
     $("#submitDino").click(() => {
         let dinoInfo = {};
         dinoInfo.name = $("#dinoName").val();
@@ -299,7 +309,7 @@ const clearForm = () => {
 const init = () => {
     dinoCards();
     dinoForm();
-    deleteDino();
+    // deleteDino();
   };
   
   init();
