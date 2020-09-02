@@ -5,6 +5,6 @@
 <p><a href="https://dino-place.netlify.app/"/>Visit Site</a></p>
 
 
-![](images/)
+![](images/dino-kennel.png)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/24e26126-e4dd-4ca7-81f6-1f70aa0ab786/deploy-status)](https://app.netlify.com/sites/dino-place/deploys)
